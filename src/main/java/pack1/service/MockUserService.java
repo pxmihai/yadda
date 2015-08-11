@@ -21,9 +21,10 @@ public class MockUserService implements IUserService {
         User user2 = new User();
         user2.setLastname("Batman");
         user2.setFirstname("Second");
+
         User user3 = new User();
         user3.setLastname("Joker");
-        user3.setFirstname("Third");
+        user3.setFirstname("Thirdish");
 
 
        ArrayList<User> users = new ArrayList<>();
