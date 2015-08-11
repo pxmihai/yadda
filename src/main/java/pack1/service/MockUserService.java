@@ -6,9 +6,7 @@ import pack1.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Mihai7 on 7/15/2015.
- */
+
 @Service
 public class MockUserService implements IUserService {
 
@@ -24,7 +22,7 @@ public class MockUserService implements IUserService {
 
         User user3 = new User();
         user3.setLastname("Joker");
-        user3.setFirstname("Thirdish");
+        user3.setFirstname("Thirdishs more");
 
 
        ArrayList<User> users = new ArrayList<>();
