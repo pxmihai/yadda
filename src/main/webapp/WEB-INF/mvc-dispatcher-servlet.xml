@@ -9,7 +9,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="pack1"/>
+    <context:component-scan base-package="yaddaSpace"/>
 
     <mvc:annotation-driven/>
 
@@ -17,4 +17,8 @@
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <mvc:resources mapping="/resources/**" location="/resources/" />
+
+
 </beans>
