@@ -12,8 +12,6 @@
 </head>
 <body>
 Banana for size
-<?php
-echo "Hello World!";
-?>
+
 </body>
 </html>
