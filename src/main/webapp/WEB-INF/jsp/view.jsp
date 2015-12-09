@@ -48,7 +48,7 @@ something something
         This website as of now is being build in Intellij IDEA. <br>
             It is using the MVC, Spring, and Hibernate<br>
             <br>
-            <c:out value="${returned}"></c:out>
+
             <br>
             The website name: <br>
             https://en.wikipedia.org/wiki/The_Yada_Yada<br>
