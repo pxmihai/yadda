@@ -18,7 +18,7 @@ public BlogEntryResourceAsm()
     public BlogEntryResource toResource (BlogEntry blogEntry){
         BlogEntryResource res = new BlogEntryResource();
         res.setTitle(blogEntry.getTitle());
-        Link link = linkTo(methodOn(BlogEntryController.class).getBlogEntry(blogEntry.getId())).withSelfRel();
+        Link link = linkTo(BlogEntryController.class).slash(blogEntry.getId()).withSelfRel();
         res.add(link.withSelfRel());
         return res;
     }

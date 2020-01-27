@@ -93,6 +93,11 @@
         </dependency>
 
         <!-- /Testing dependencies -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
         <!-- json response -->
         <dependency>
             <groupId>org.json</groupId>

@@ -1,25 +1,18 @@
-package yaddaSpace;
+package yaddaSpace.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
 @Controller
-public class  TestController {
-    @RequestMapping("/")
+public class HomeController {
+    @RequestMapping(value="/")
     public String test(){
-
-
         return "view";
-
     }
 
-    @RequestMapping("/app")
-    public String app(){
+    @RequestMapping(value="/eggs")
+    public String eggs(){return "eggs";}
 
-        return "app";
-
-    }
 }
 

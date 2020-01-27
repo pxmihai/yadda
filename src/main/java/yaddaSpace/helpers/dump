@@ -1,0 +1,187 @@
+
+<c:forEach var="i" items="${splitList2}"  varStatus="status">
+<c:choose>
+  <c:when test="${i==splitList[index.status]}">
+      <strong><c:out value="${i}"/></strong>
+
+  </c:when>
+
+
+  <c:when test="${i!=splitList[index.status]}">
+<c:out value="${i}"/>
+  </c:when>
+  </c:choose>
+  </c:forEach>
+
+
+  <tr>
+            <td>The text's sentences:</td>
+            <td>${output}</td>
+        </tr>
+
+
+            <tr>
+              <td>Summary:</td>
+              <td>${summary}</td>
+            </tr>
+
+
+
+                          <c:forEach var="i" items="${splitList}">
+                              <c:forEach var="j" items="${splitList2}">
+
+                                  <c:choose>
+                                      <c:when test="${i.contains(j)}">
+                                           <strong><c:out value="${i}"/></strong>
+                                      </c:when>
+
+                                  </c:choose>
+                              </c:forEach>
+                          </c:forEach>
+
+
+
+                                      if(request.procent!="empty"){
+
+                                          if(request.procent=="25"){
+                                              Double d =0.25;
+                                              Integer i =d.intValue();
+                                              request.num=count*i ;
+
+                                          }
+                                          if(request.procent=="50"){
+                                              request.num=count*Integer.parseInt(request.procent) ;
+                                          }
+                                          if(request.procent=="75"){
+                                              request.num=count*Integer.parseInt(request.procent) ;
+                                          }
+                                      }
+
+
+                                      //            String segmented=  "{\"sentences\":[\"'I can't believe that!'\",\"said Alice.\",\"'Can't you?'\",\"the Queen said in a pitying tone.\",\"'Try again: draw a long breath, and shut your eyes.'\",\"Alice laughed.\",\"'There's not use trying,' she said: 'one can't believe impossible things.'\",\"'I daresay you haven't had much practice,' said the Queen.\",\"'When I was your age, I always did it for half-an-hour a day.\",\"Why, sometimes I've believed as many as six impossible things before breakfast.\",\"There goes the shawl again!'\"]}";
+                                      //            String output   = "{\"sentences\":[\"'I can't believe that!'\",\"'There's not use trying,' she said: 'one can't believe impossible things.'\",\"Why, sometimes I've believed as many as six impossible things before breakfast.\",\"the Queen said in a pitying tone.\",\"said Alice.\",\"'Can't you?'\",\"Alice laughed.\"]}";
+<!--
+    <tr>
+      <td>Text:</td>
+      <td>${requestForm.text}</td>
+    </tr>
+-->
+
+package yaddaSpace.controller;
+
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import yaddaSpace.helpers.dataField;
+import java.util.ArrayList;
+
+
+
+@Controller
+public class SummaryController {
+
+// have the text first then make /add do the work
+    @RequestMapping(value="/summary",method=RequestMethod.GET)
+    public String summary(Model model){
+        String output = "";
+        try {
+            HttpResponse<JsonNode> response = Unirest.post("https://textanalysis-text-summarization.p.mashape.com/text-summarizer-text")
+                    .header("X-Mashape-Key", dataField.apiKey)
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .header("Accept", "application/json")
+                    .field("sentnum", dataField.num)
+                    .field("text", dataField.text5 )
+                    .asJson();
+
+            output = response.getBody().toString();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+
+        /*
+        * check to see if output is empty and if so return error
+        * if output noy empty then split output in a vector of strings
+        * check for each element in vector and return start and stop in each sentence
+        * use data to color the background
+        * increment counter for each sentence, split color in x and color each sentence
+        * by its value
+        *
+        *
+        *
+        * */
+
+        //split summary
+        //JSONArray jsonArray = new JSONArray(output);
+
+        JSONObject obj = new JSONObject(output);
+        ArrayList<String> list = new ArrayList<String>();
+        JSONArray jsonArray = obj.getJSONArray("sentences");
+        if (jsonArray != null) {
+            int len = jsonArray.length();
+            for (int i=0;i<len;i++){
+                list.add(jsonArray.get(i).toString());
+            }
+        }
+        //display data used in summary
+        model.addAttribute("num",dataField.num); // send number of sentences
+        model.addAttribute("original",dataField.text5); // send original text
+        model.addAttribute("summary",output); // send the output
+       // model.addAttribute("array",list.toArray()); sends garbage
+       // model.addAttribute("array",list.get(3)); //works
+
+        //hopefully the data will be stored in Request.
+
+        return "summary";
+    }
+}
+
+
+            //split total propozitii in top 25 50 75
+            // count contine numarul total
+            // count - 25/50/75
+            // noul request.num = count - 25/50/75 rounded.
+
+
+            //array sumarizat = splitList2
+            //array normal = splitList
+
+            // display list elements //works
+
+            // find in an array other array elements
+
+            //splitlist has len elements, in the order that the request.text has them
+            //
+//            JSONObject split1 = new JSONObject(segmented);
+//            ArrayList<String> splitList = new ArrayList<>();
+//            JSONArray jsonArray1 = split1.getJSONArray("sentences");
+//            if (jsonArray1 != null) {
+//                int len = jsonArray1.length();
+//                for (int i = 0; i < len; i++) {
+//                    splitList.add(jsonArray1.get(i).toString());
+//                }
+//            }
+//splitlist has len elements, in the order that the request.text has them
+// use premade jsons.
+
+            //count - cate propozitii contine ce se doreste a fi sumarizat
+            //segmented- jsonul cu propozitiile impartite
+            //output - sumarizarea returnata
+
+            /*
+            * Vreau sa identific in textul original, care inseamna de fapt cel
+            *   segmented propozitiile ce sunt returnate de output si sa le
+            *   colorez.
+            *
+            *   Stiu cate propozitii sunt, pot imparti stringul in vectori cu textul.
+            *   pot cauta inapoi fiecare string in textul original
+            *   pot afla start si stop pozitiile fiecarui text din cele sumarizate.
+            *   trebuie sa introduc in pozitiile alea un highlighted
+            * */
+            //construiesc vectorul din segmentat, ar trebui sa am elemente cate propozitii

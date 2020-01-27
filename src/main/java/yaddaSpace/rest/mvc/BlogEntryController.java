@@ -16,6 +16,8 @@ public class BlogEntryController {
 
     private BlogEntryService service;
 
+    public BlogEntryController(){};
+
     public BlogEntryController(BlogEntryService service)
     {
         this.service = service;
