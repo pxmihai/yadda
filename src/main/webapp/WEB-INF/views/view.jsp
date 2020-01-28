@@ -30,7 +30,7 @@
             The website name is a reference to <a href="https://en.wikipedia.org/wiki/The_Yada_Yada" target="_blank">the yada yada</a>, an episode from Seinfeld.
             "George's new girlfriend Marcy (Suzanne Cryer) likes to say "yada yada yada" to shorten her stories."
             <br>
-            Note: The extra <strong>d</strong> was added because <strong>yada</strong> was not available
+            Note: The extra <strong>d</strong> was added because <strong>yada</strong> was not available.
 
             <form action="/request">
             <input type="submit" value="Go to App">
