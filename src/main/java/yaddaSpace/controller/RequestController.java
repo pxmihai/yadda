@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import yaddaSpace.helpers.dataField;
 import yaddaSpace.model.Request;
-import yaddaSpace.helpers.secret.api;
 
 
 @Controller
@@ -44,7 +43,7 @@ public class RequestController {
             String segmented="";
             try {
                 HttpResponse<JsonNode> response2 = Unirest.post("https://textanalysis.p.mashape.com/nltk-sentence-segmentation")
-                        .header("X-Mashape-Key", api.apiKey)
+                        .header("X-Mashape-Key", dataField.apiKey)
                         .header("Content-Type", "application/x-www-form-urlencoded")
                         .header("Accept", "application/json")
                         .field("text",request.text)
