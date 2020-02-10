@@ -17,7 +17,7 @@
 <div class="container">
     <div class="row">
         <div class="one-half column" style="margin-top: 25%">
-            <h4>Welcome!+</h4>
+            <h4>Welcome!</h4>
 
             <p>This is the home for an App. It's goal is to summarize text.<br>
 
