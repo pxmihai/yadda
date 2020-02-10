@@ -42,6 +42,7 @@ public class dataField {
     // text from summary picks up the \n's
 
     public static String apiKey="sAqYRPqYO7mshcqrB1IKU1qWJmxfp1SdR29jsnHubfPfSILEfV";
+    // don't be evil ;)
     public static int num =3;
 }
 
