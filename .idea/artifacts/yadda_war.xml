@@ -1,6 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="war" name="yadda:war">
     <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>yadda</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="archive" name="yadda-licenta-1.0.war">
       <element id="artifact" artifact-name="yadda:war exploded" />
     </root>
