@@ -1,8 +1,9 @@
-# yadda
-yadda yadda yadda
+##  **_yadda yadda yadda - yadda_**
+
 
 This is my undergraduate student project. Check it out
-## https://yadda.herokuapp.com/
+[yadda on heroku](https://yadda.herokuapp.com)  
+  [takes some time to wake up. (~10+ seconds) ] 
 
 ````
 It was a fun project, because i got to play with some language tools that process 
