@@ -5,12 +5,11 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import yaddaSpace.core.entities.BlogEntry;
-import yaddaSpace.core.services.BlogEntryService;
-import yaddaSpace.rest.mvc.BlogEntryController;
+import yaddaSpace.core.entities.Entry;
+import yaddaSpace.core.services.EntryService;
+import yaddaSpace.rest.mvc.EntryController;
 
 import static org.hamcrest.Matchers.endsWith;
 import static org.hamcrest.Matchers.hasItem;
@@ -22,12 +21,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-public class BlogEntryControllerTest {
+public class EntryControllerTest {
     @InjectMocks
-    private BlogEntryController controller;
+    private EntryController controller;
 
     @Mock
-    private BlogEntryService service;// mock will instantiate an object for the mocked object
+    private EntryService service;// mock will instantiate an object for the mocked object
 
     private MockMvc mockMvc;
 
@@ -51,7 +50,7 @@ public class BlogEntryControllerTest {
 //    }
     @Test
     public void getExistingBlogEntry() throws Exception{
-        BlogEntry entry = new BlogEntry();
+        Entry entry = new Entry();
         entry.setId(1L);
         entry.setTitle("Test Title");
         when(service.find(1L)).thenReturn(entry);

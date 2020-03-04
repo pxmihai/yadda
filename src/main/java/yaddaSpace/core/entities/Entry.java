@@ -1,6 +1,6 @@
 package yaddaSpace.core.entities;
 
-public class BlogEntry {
+public class Entry {
     private Long id;
     private String title;
 
