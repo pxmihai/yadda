@@ -2,12 +2,12 @@ package yaddaSpace.helpers;
 
 public class dataField {
 
-    public static String text0="Cica erau odata o baba si un mosneag: mosneagul de-o suta de ani, si baba de nouazeci " +
-            "si amandoi batranii acestia erau albi ca iarna si posomorati ca vremea cea rea din pricina ca nu aveau copii. " +
-            "si, Doamne! tare mai erau doriti sa aiba macar unul, caci, c�t era ziulica si noaptea de mare, sedeau singurei" +
-            " ca cucul si le tiuiau urechile, de ur�t ce le era. si apoi, pe l�nga toate aceste, nici vreo scofala mare nu era " +
-            "de d�nsii: un bordei ca vai de el, niste toale rupte, asternute pe laite, si at�ta era tot. Ba de la o vreme �ncoace," +
-            " ur�tul �i m�nca si mai tare, caci tipenie de om nu le deschidea usa; parca erau bolnavi de ciuma, sarmanii! ";
+//    public static String text0="Cica erau odata o baba si un mosneag: mosneagul de-o suta de ani, si baba de nouazeci " +
+//            "si amandoi batranii acestia erau albi ca iarna si posomorati ca vremea cea rea din pricina ca nu aveau copii. " +
+//            "si, Doamne! tare mai erau doriti sa aiba macar unul, caci, c�t era ziulica si noaptea de mare, sedeau singurei" +
+//            " ca cucul si le tiuiau urechile, de ur�t ce le era. si apoi, pe l�nga toate aceste, nici vreo scofala mare nu era " +
+//            "de d�nsii: un bordei ca vai de el, niste toale rupte, asternute pe laite, si at�ta era tot. Ba de la o vreme �ncoace," +
+//            " ur�tul �i m�nca si mai tare, caci tipenie de om nu le deschidea usa; parca erau bolnavi de ciuma, sarmanii! ";
 
     public static String text1="The book is about a young lad, Nils Holgersson, whose \"chief delight " +
             "was to eat and sleep, and after that he liked best to make mischief\". He takes great delight" +
